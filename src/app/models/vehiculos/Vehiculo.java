@@ -44,6 +44,8 @@ abstract public class Vehiculo {
         return reparado;
     }
 
+    abstract public void reparar();
+
     @Override
     public String toString() {
         return String.format(
