@@ -1,6 +1,6 @@
 package app.models.vehiculos;
 
-public class Moto extends Vehiculo {
+public class Moto extends Vehiculo implements IRevisable {
     private int cilindrada;
 
     public Moto(String marca, String modelo, int añoFabricacion, int cilindrada) {
@@ -20,6 +20,11 @@ public class Moto extends Vehiculo {
     public void reparar() {
         reparado = true;
         System.out.print("La moto ha sido reparada\n");
+    }
+
+    @Override
+    public void revisar() {
+        System.out.print("La moto ha sido revisada\n");
     }
 
     @Override
