@@ -29,6 +29,6 @@ public class Coche extends Vehiculo implements IRevisable {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("\tNúmero de puertas: %d\n", numPuertas);
+        return String.format("Coche:%s\tNumero de puertas: %s", super.toString(), numPuertas);
     }
 }

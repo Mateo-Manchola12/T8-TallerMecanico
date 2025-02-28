@@ -26,16 +26,42 @@ public class MenuController {
 
     private void handleMenu() {
         Menu.clearMenu();
+
         switch (option) {
             case 1:
                 createVehiculo();
                 break;
             case 2:
+                if (!taller.hasVehiculos()) {
+                    System.out.println("No hay vehiculos en el taller");
+                    return;
+                }
                 taller.showVehiculos();
                 break;
             case 3:
-                System.out.println("Opción no implementada");
+                if (!taller.hasVehiculos()) {
+                    System.out.println("No hay vehiculos en el taller");
+                    return;
+                }
+                doMaintenance();
                 break;
+        }
+    }
+
+    private void doMaintenance() {
+        taller.showVehiculosPlates();
+        String matricula = InputHelpers.getString("Indique la matricula del vehiculo a reparar").toUpperCase();
+        Vehiculo vehiculo = taller.findVehiculo(matricula);
+
+        if (vehiculo != null) {
+            Boolean maintenanceResult = taller.doMaintenance(vehiculo);
+            if (!maintenanceResult) {
+                System.out.println("El vehiculo ya ha sido reparado");
+                return;
+            }
+            System.out.println("Vehiculo reparado correctamente");
+        } else {
+            System.out.println("Vehiculo no encontrado");
         }
     }
 
@@ -52,6 +78,7 @@ public class MenuController {
         String marca = InputHelpers.getString("Indique la marca");
         String modelo = InputHelpers.getString("Indique el modelo");
         String matricula = InputHelpers.getString("Indique la matricula").toUpperCase();
+
         int añoFabricacion = InputHelpers.getInt("Indique el año de fabricación", 1900, 2025);
 
         switch (option) {
@@ -68,6 +95,11 @@ public class MenuController {
 
         if (vehiculo != null) {
             taller.addVehiculo(vehiculo);
+            Menu.clearMenu();
+            System.out.println("Vehiculo creado correctamente");
+            System.out.println(vehiculo);
+        } else {
+            System.out.println("Error al crear el vehiculo");
         }
     }
 }

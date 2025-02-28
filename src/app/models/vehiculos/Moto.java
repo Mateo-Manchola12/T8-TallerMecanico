@@ -29,6 +29,6 @@ public class Moto extends Vehiculo implements IRevisable {
 
     @Override
     public String toString() {
-        return super.toString() + String.format("\tCilindrada:%d\n", cilindrada);
+        return String.format("Moto:%s\tCilindrada: %s", super.toString(), cilindrada);
     }
 }
