@@ -14,6 +14,7 @@ abstract public class Vehiculo {
         this.matricula = matricula.toUpperCase();
         this.añoFabricacion = añoFabricacion;
     }
+
     public String getMatricula() {
         return matricula;
     }
@@ -60,12 +61,13 @@ abstract public class Vehiculo {
     public String toString() {
         return String.format(
                 """
+                        \tMatricula: %s
                         \tMarca: %s
                         \tModelo: %s
                         \tAño de Fabricación: %d
-                        \tReparado: %b
+                        \tReparado: %s
                         """,
-                marca, modelo, añoFabricacion, reparado);
+                matricula, marca, modelo, añoFabricacion, reparado ? "Si" : "No");
     }
 
 }

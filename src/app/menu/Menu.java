@@ -15,10 +15,10 @@ public class Menu {
         System.out.println("Menu");
 
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%n\t%d - %s", i + 1, options[i]);
+            System.out.printf("\t%d - %s%n", i + 1, options[i]);
         }
 
-        System.out.printf("%n\t%d - Salir", options.length + 1);
+        System.out.printf("\t%d - Salir%n", options.length + 1);
 
         return options.length + 1;
     }
@@ -31,28 +31,12 @@ public class Menu {
         System.out.println("Crear Vehiculo");
 
         for (int i = 0; i < options.length; i++) {
-            System.out.printf("%n\t%d - %s", i + 1, options[i]);
+            System.out.printf("\t%d - %s%n", i + 1, options[i]);
         }
 
-        System.out.printf("%n\t%d - volver", options.length + 1);
+        System.out.printf("\t%d - Volver%n", options.length + 1);
 
         return options.length + 1;
-    }
-
-    public static void showVehiculos(ArrayList<Vehiculo> vehiculos) {
-        System.out.println("Mostrar Vehiculos");
-
-        for (Vehiculo vehiculo : vehiculos) {
-            System.out.println(vehiculo);
-        }
-    }
-
-    public static void showVehiculosPlates(ArrayList<Vehiculo> vehiculos) {
-        System.out.println("Mostrar Vehiculos");
-
-        for (Vehiculo vehiculo : vehiculos) {
-            System.out.println("\t ->" + vehiculo.getMatricula());
-        }
     }
 
     public static void clearMenu() {
