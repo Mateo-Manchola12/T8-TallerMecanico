@@ -32,20 +32,42 @@ public class MenuController {
                 createVehiculo();
                 break;
             case 2:
-                if (!taller.hasVehiculos()) {
-                    System.out.println("No hay vehiculos en el taller");
-                    return;
-                }
-                taller.showVehiculos();
+                if (checkVehiculos())
+                    taller.showVehiculos();
                 break;
             case 3:
-                if (!taller.hasVehiculos()) {
-                    System.out.println("No hay vehiculos en el taller");
-                    return;
+                if (checkVehiculos())
+                    doMaintenance();
+                break;
+            case 4:
+                if (checkVehiculos()) {
+                    taller.sortVehiculosByYear();
+                    taller.showVehiculos();
                 }
-                doMaintenance();
+                break;
+            case 5:
+                if (checkVehiculos()) {
+                    Vehiculo vehiculo = taller.getOldestVehiculoIterative();
+                    System.out.println("Vehiculo mas antiguo (Iterativo):");
+                    System.out.println(vehiculo);
+                }
+                break;
+            case 6:
+                if (checkVehiculos()) {
+                    Vehiculo vehiculo = taller.getOldestVehiculoRecursive();
+                    System.out.println("Vehiculo mas antiguo (Recursivo):");
+                    System.out.println(vehiculo);
+                }
                 break;
         }
+    }
+
+    private boolean checkVehiculos() {
+        if (taller.hasVehiculos()) {
+            return true;
+        }
+        System.out.println("No hay vehiculos en el taller");
+        return false;
     }
 
     private void doMaintenance() {
