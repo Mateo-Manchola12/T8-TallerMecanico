@@ -1,6 +1,6 @@
 package app.models.vehiculos;
 
-abstract public class Vehiculo {
+abstract public class Vehiculo implements Comparable<Vehiculo> {
     protected String marca;
     protected String modelo;
     protected String matricula;
@@ -70,4 +70,8 @@ abstract public class Vehiculo {
                 matricula, marca, modelo, añoFabricacion, reparado ? "Si" : "No");
     }
 
+    @Override
+    public int compareTo(Vehiculo vehiculo) {
+        return ((Integer) this.añoFabricacion).compareTo((Integer) vehiculo.añoFabricacion);
+    }
 }

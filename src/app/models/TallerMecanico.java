@@ -1,6 +1,7 @@
 package app.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import app.models.vehiculos.IRevisable;
 import app.models.vehiculos.Vehiculo;
@@ -18,7 +19,7 @@ public class TallerMecanico {
 
     public void showVehiculos() {
         for (Vehiculo vehiculo : this.vehiculos)
-            System.out.println(vehiculo);
+            System.out.println(vehiculo + "\n");
 
     }
 
@@ -52,5 +53,38 @@ public class TallerMecanico {
 
     public boolean hasVehiculos() {
         return !this.vehiculos.isEmpty();
+    }
+
+    public void sortVehiculosByYear() {
+        Collections.sort(this.vehiculos);
+    }
+
+    public Vehiculo getOldestVehiculoIterative() {
+        Vehiculo oldest = null;
+        for (Vehiculo vehiculo : this.vehiculos) {
+            if (oldest == null || vehiculo.getAñoFabricacion() < oldest.getAñoFabricacion()) {
+                oldest = vehiculo;
+            }
+        }
+        return oldest;
+    }
+
+    public Vehiculo getOldestVehiculoRecursive(Vehiculo older, int index) {
+        if (index == this.vehiculos.size()) {
+            return older;
+        }
+
+        Vehiculo vehiculo = this.vehiculos.get(index);
+
+        if (older == null || vehiculo.getAñoFabricacion() < older.getAñoFabricacion()) {
+            older = vehiculo;
+        }
+
+        return getOldestVehiculoRecursive(older, index + 1);
+
+    }
+
+    public Vehiculo getOldestVehiculoRecursive() {
+        return getOldestVehiculoRecursive(null, 0);
     }
 }
