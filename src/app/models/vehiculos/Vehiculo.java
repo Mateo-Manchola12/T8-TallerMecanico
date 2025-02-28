@@ -1,6 +1,6 @@
 package app.models.vehiculos;
 
-abstract public class Vehiculo {
+abstract public class Vehiculo implements Comparable<Vehiculo> {
     protected String marca;
     protected String modelo;
     protected String matricula;
@@ -11,15 +11,16 @@ abstract public class Vehiculo {
     public Vehiculo(String marca, String modelo, String matricula, int añoFabricacion) {
         this.marca = marca;
         this.modelo = modelo;
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
         this.añoFabricacion = añoFabricacion;
     }
+
     public String getMatricula() {
         return matricula;
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
     }
 
     public String getMarca() {
@@ -60,12 +61,17 @@ abstract public class Vehiculo {
     public String toString() {
         return String.format(
                 """
+                        \tMatricula: %s
                         \tMarca: %s
                         \tModelo: %s
                         \tAño de Fabricación: %d
-                        \tReparado: %b
+                        \tReparado: %s
                         """,
-                marca, modelo, añoFabricacion, reparado);
+                matricula, marca, modelo, añoFabricacion, reparado ? "Si" : "No");
     }
 
+    @Override
+    public int compareTo(Vehiculo vehiculo) {
+        return ((Integer) this.añoFabricacion).compareTo((Integer) vehiculo.añoFabricacion);
+    }
 }
