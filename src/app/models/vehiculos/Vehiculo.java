@@ -11,7 +11,7 @@ abstract public class Vehiculo {
     public Vehiculo(String marca, String modelo, String matricula, int añoFabricacion) {
         this.marca = marca;
         this.modelo = modelo;
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
         this.añoFabricacion = añoFabricacion;
     }
     public String getMatricula() {
@@ -19,7 +19,7 @@ abstract public class Vehiculo {
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
     }
 
     public String getMarca() {

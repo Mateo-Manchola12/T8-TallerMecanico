@@ -51,7 +51,7 @@ public class Menu {
         System.out.println("Mostrar Vehiculos");
 
         for (Vehiculo vehiculo : vehiculos) {
-            System.out.println(vehiculo.getMatricula());
+            System.out.println("\t ->" + vehiculo.getMatricula());
         }
     }
 
