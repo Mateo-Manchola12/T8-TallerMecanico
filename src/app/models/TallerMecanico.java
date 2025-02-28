@@ -58,4 +58,33 @@ public class TallerMecanico {
     public void sortVehiculosByYear() {
         Collections.sort(this.vehiculos);
     }
+
+    public Vehiculo getOldestVehiculoIterative() {
+        Vehiculo oldest = null;
+        for (Vehiculo vehiculo : this.vehiculos) {
+            if (oldest == null || vehiculo.getAñoFabricacion() < oldest.getAñoFabricacion()) {
+                oldest = vehiculo;
+            }
+        }
+        return oldest;
+    }
+
+    public Vehiculo getOldestVehiculoRecursive(Vehiculo older, int index) {
+        if (index == this.vehiculos.size()) {
+            return older;
+        }
+
+        Vehiculo vehiculo = this.vehiculos.get(index);
+
+        if (older == null || vehiculo.getAñoFabricacion() < older.getAñoFabricacion()) {
+            older = vehiculo;
+        }
+
+        return getOldestVehiculoRecursive(older, index + 1);
+
+    }
+
+    public Vehiculo getOldestVehiculoRecursive() {
+        return getOldestVehiculoRecursive(null, 0);
+    }
 }

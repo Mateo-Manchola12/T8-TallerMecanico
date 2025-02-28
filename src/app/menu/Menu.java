@@ -7,7 +7,9 @@ public class Menu {
                 "Crear Vehiculo",
                 "Mostrar Vehiculos",
                 "Realizar Mantenimiento",
-                "ordena los vehículos por el año de fabricación" };
+                "Ordena los vehículos por el año de fabricación",
+                "Vehiculo mas antiguo (Iterativo)",
+                "Vehiculo mas antiguo (Recursivo)" };
 
         System.out.println("Menu");
 
