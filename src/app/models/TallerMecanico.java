@@ -58,4 +58,19 @@ public class TallerMecanico {
     public void sortVehiculosByYear() {
         Collections.sort(this.vehiculos);
     }
+
+    public Vehiculo getOldestVehiculoIterative() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getOldestVehiculoIterative'");
+    }
+
+    public Vehiculo getOldestVehiculoRecursive() {
+        Vehiculo oldest = null;
+        for (Vehiculo vehiculo : this.vehiculos) {
+            if (oldest == null || vehiculo.getAñoFabricacion() < oldest.getAñoFabricacion()) {
+                oldest = vehiculo;
+            }
+        }
+        return oldest;
+    }
 }
