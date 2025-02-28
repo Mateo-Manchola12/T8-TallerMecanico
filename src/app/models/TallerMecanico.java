@@ -60,11 +60,6 @@ public class TallerMecanico {
     }
 
     public Vehiculo getOldestVehiculoIterative() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getOldestVehiculoIterative'");
-    }
-
-    public Vehiculo getOldestVehiculoRecursive() {
         Vehiculo oldest = null;
         for (Vehiculo vehiculo : this.vehiculos) {
             if (oldest == null || vehiculo.getAñoFabricacion() < oldest.getAñoFabricacion()) {
@@ -72,5 +67,24 @@ public class TallerMecanico {
             }
         }
         return oldest;
+    }
+
+    public Vehiculo getOldestVehiculoRecursive(Vehiculo older, int index) {
+        if (index == this.vehiculos.size()) {
+            return older;
+        }
+
+        Vehiculo vehiculo = this.vehiculos.get(index);
+
+        if (older == null || vehiculo.getAñoFabricacion() < older.getAñoFabricacion()) {
+            older = vehiculo;
+        }
+
+        return getOldestVehiculoRecursive(older, index + 1);
+
+    }
+
+    public Vehiculo getOldestVehiculoRecursive() {
+        return getOldestVehiculoRecursive(null, 0);
     }
 }
