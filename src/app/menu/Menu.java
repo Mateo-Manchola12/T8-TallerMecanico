@@ -1,9 +1,5 @@
 package app.menu;
 
-import java.util.ArrayList;
-
-import app.models.vehiculos.Vehiculo;
-
 public class Menu {
 
     public static int showMenu() {
