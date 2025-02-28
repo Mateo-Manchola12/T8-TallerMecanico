@@ -3,8 +3,8 @@ package app.models.vehiculos;
 public class Moto extends Vehiculo implements IRevisable {
     private int cilindrada;
 
-    public Moto(String marca, String modelo, int añoFabricacion, int cilindrada) {
-        super(marca, modelo, añoFabricacion);
+    public Moto(String marca, String modelo, String matricula, int añoFabricacion, int cilindrada) {
+        super(marca, modelo, matricula, añoFabricacion);
         this.cilindrada = cilindrada;
     }
 

@@ -3,13 +3,23 @@ package app.models.vehiculos;
 abstract public class Vehiculo {
     protected String marca;
     protected String modelo;
+    protected String matricula;
     protected int añoFabricacion;
+
     protected boolean reparado = false;
 
-    public Vehiculo(String marca, String modelo, int añoFabricacion) {
+    public Vehiculo(String marca, String modelo, String matricula, int añoFabricacion) {
         this.marca = marca;
         this.modelo = modelo;
+        this.matricula = matricula;
         this.añoFabricacion = añoFabricacion;
+    }
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getMarca() {
