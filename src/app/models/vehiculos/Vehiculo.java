@@ -11,15 +11,16 @@ abstract public class Vehiculo {
     public Vehiculo(String marca, String modelo, String matricula, int añoFabricacion) {
         this.marca = marca;
         this.modelo = modelo;
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
         this.añoFabricacion = añoFabricacion;
     }
+
     public String getMatricula() {
         return matricula;
     }
 
     public void setMatricula(String matricula) {
-        this.matricula = matricula;
+        this.matricula = matricula.toUpperCase();
     }
 
     public String getMarca() {
@@ -60,12 +61,13 @@ abstract public class Vehiculo {
     public String toString() {
         return String.format(
                 """
+                        \tMatricula: %s
                         \tMarca: %s
                         \tModelo: %s
                         \tAño de Fabricación: %d
-                        \tReparado: %b
+                        \tReparado: %s
                         """,
-                marca, modelo, añoFabricacion, reparado);
+                matricula, marca, modelo, añoFabricacion, reparado ? "Si" : "No");
     }
 
 }

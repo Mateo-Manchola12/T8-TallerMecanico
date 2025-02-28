@@ -41,4 +41,16 @@ public class TallerMecanico {
             return true;
         }
     }
+
+    public void showVehiculosPlates() {
+        System.out.println("Mostrar Vehiculos");
+
+        for (Vehiculo vehiculo : vehiculos) {
+            System.out.println("\t ->" + vehiculo.getMatricula());
+        }
+    }
+
+    public boolean hasVehiculos() {
+        return !this.vehiculos.isEmpty();
+    }
 }
