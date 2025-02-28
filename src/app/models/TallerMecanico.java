@@ -1,6 +1,7 @@
 package app.models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import app.models.vehiculos.IRevisable;
 import app.models.vehiculos.Vehiculo;
@@ -18,7 +19,7 @@ public class TallerMecanico {
 
     public void showVehiculos() {
         for (Vehiculo vehiculo : this.vehiculos)
-            System.out.println(vehiculo);
+            System.out.println(vehiculo + "\n");
 
     }
 
@@ -52,5 +53,9 @@ public class TallerMecanico {
 
     public boolean hasVehiculos() {
         return !this.vehiculos.isEmpty();
+    }
+
+    public void sortVehiculosByYear() {
+        Collections.sort(this.vehiculos);
     }
 }

@@ -45,6 +45,14 @@ public class MenuController {
                 }
                 doMaintenance();
                 break;
+            case 4:
+                if (!taller.hasVehiculos()) {
+                    System.out.println("No hay vehiculos en el taller");
+                    return;
+                }
+                taller.sortVehiculosByYear();
+                taller.showVehiculos();
+                break;
         }
     }
 

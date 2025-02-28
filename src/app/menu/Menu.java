@@ -6,7 +6,8 @@ public class Menu {
         String[] options = {
                 "Crear Vehiculo",
                 "Mostrar Vehiculos",
-                "Realizar Mantenimiento" };
+                "Realizar Mantenimiento",
+                "ordena los vehículos por el año de fabricación" };
 
         System.out.println("Menu");
 
