@@ -3,8 +3,8 @@ package app.models.vehiculos;
 public class Coche extends Vehiculo implements IRevisable {
     private int numPuertas;
 
-    public Coche(String marca, String modelo, int añoFabricacion, int numPuertas) {
-        super(marca, modelo, añoFabricacion);
+    public Coche(String marca, String modelo, String matricula, int añoFabricacion, int numPuertas) {
+        super(marca, modelo, matricula, añoFabricacion);
         this.numPuertas = numPuertas;
     }
 
