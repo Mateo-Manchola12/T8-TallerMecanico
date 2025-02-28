@@ -8,7 +8,7 @@ import app.models.vehiculos.Coche;
 public class CocheTest {
     @Test
     public void testCoche() {
-        Coche coche = new Coche("Toyota", "Corolla", 2021, 4);
+        Coche coche = new Coche("Toyota", "Corolla", "HJPL267", 2021, 4);
         assertEquals("Toyota", coche.getMarca());
         assertEquals("Corolla", coche.getModelo());
         assertEquals(2021, coche.getAñoFabricacion());
